@@ -8,9 +8,9 @@
 
 import Foundation
 
-class UsingSink<SourceType, ResourceType: Disposable, O: ObserverType where O.E == SourceType> : Sink<O>, ObserverType {
+class UsingSink<SourceType, O: ObserverType where O.E == SourceType> : Sink<O>, ObserverType {
 
-    typealias Parent = Using<SourceType, ResourceType>
+    typealias Parent = Using<SourceType>
     typealias E = O.E
 
     private let _parent: Parent
@@ -54,12 +54,12 @@ class UsingSink<SourceType, ResourceType: Disposable, O: ObserverType where O.E 
     }
 }
 
-class Using<SourceType, ResourceType: Disposable>: Producer<SourceType> {
+class Using<SourceType>: Producer<SourceType> {
     
     typealias E = SourceType
     
-    typealias ResourceFactory = () throws -> ResourceType
-    typealias ObservableFactory = ResourceType throws -> Observable<SourceType>
+    typealias ResourceFactory = () throws -> Disposable
+    typealias ObservableFactory = Disposable throws -> Observable<SourceType>
     
     private let _resourceFactory: ResourceFactory
     private let _observableFactory: ObservableFactory

@@ -168,7 +168,7 @@ extension Observable {
     - returns: An observable sequence whose lifetime controls the lifetime of the dependent resource object.
     */
     @warn_unused_result(message="http://git.io/rxs.uo")
-    public static func using<R: Disposable>(resourceFactory: () throws -> R, observableFactory: R throws -> Observable<E>) -> Observable<E> {
+    public static func using(resourceFactory: () throws -> Disposable, observableFactory: Disposable throws -> Observable<E>) -> Observable<E> {
         return Using(resourceFactory: resourceFactory, observableFactory: observableFactory)
     }
 }
