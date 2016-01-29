@@ -35,21 +35,14 @@ extension UISearchBar {
             let text = self?.text ?? ""
             
             return (self?.rx_delegate.observe("searchBar:textDidChange:") ?? Observable.empty())
-                    .map { a in
-                        return a[1] as? String ?? ""
-                    }
-                    .startWith(text)
+                .map { a in
+                    return a[1] as? String ?? ""
+                }
+                .startWith(text)
         }
         
-        return ControlProperty(values: source, valueSink: AnyObserver { [weak self] event in
-            switch event {
-            case .Next(let value):
-                self?.text = value
-            case .Error(let error):
-                bindingErrorToInterface(error)
-            case .Completed:
-                break
-            }
+        return ControlProperty(values: source, valueSink: Drivable<String> { [weak self] value in
+            self?.text = value
         })
     }
 }

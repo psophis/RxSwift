@@ -106,18 +106,8 @@ extension NSTextField {
             delegate.textSubject.startWith(self?.stringValue ?? "")
         }.takeUntil(rx_deallocated)
         
-        return ControlProperty(values: source, valueSink: AnyObserver { [weak self] event in
-            MainScheduler.ensureExecutingOnScheduler()
-            
-            switch event {
-            case .Next(let value):
-                self?.stringValue = value
-            case .Error(let error):
-                bindingErrorToInterface(error)
-                break
-            case .Completed:
-                break
-            }
+        return ControlProperty(values: source, valueSink: Drivable { [weak self] value in
+            self?.stringValue = value
         })
     }
     

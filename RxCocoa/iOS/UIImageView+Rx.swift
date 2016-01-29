@@ -19,7 +19,7 @@ extension UIImageView {
     /**
     Bindable sink for `image` property.
     */
-    public var rx_image: AnyObserver<UIImage?> {
+    public var rx_image: Drivable<UIImage?> {
         return self.rx_imageAnimated(nil)
     }
     
@@ -28,31 +28,20 @@ extension UIImageView {
     
     - parameter transitionType: Optional transition type while setting the image (kCATransitionFade, kCATransitionMoveIn, ...)
     */
-    public func rx_imageAnimated(transitionType: String?) -> AnyObserver<UIImage?> {
-        return AnyObserver { [weak self] event in
-            MainScheduler.ensureExecutingOnScheduler()
-            
-            switch event {
-            case .Next(let value):
-                if let transitionType = transitionType {
-                    if value != nil {
-                        let transition = CATransition()
-                        transition.duration = 0.25
-                        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-                        transition.type = transitionType
-                        self?.layer.addAnimation(transition, forKey: kCATransition)
-                    }
+    public func rx_imageAnimated(transitionType: String?) -> Drivable<UIImage?> {
+        return Drivable { [weak self] value in
+            if let transitionType = transitionType {
+                if value != nil {
+                    let transition = CATransition()
+                    transition.duration = 0.25
+                    transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                    transition.type = transitionType
+                    self?.layer.addAnimation(transition, forKey: kCATransition)
                 }
-                else {
-                    self?.layer.removeAllAnimations()
-                }
-                self?.image = value
-            case .Error(let error):
-                bindingErrorToInterface(error)
-                break
-            case .Completed:
-                break
+            } else {
+                self?.layer.removeAllAnimations()
             }
+            self?.image = value
         }
     }
     

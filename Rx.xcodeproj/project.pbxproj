@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		682A5D751C5C06BC002FC58A /* Drivable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682A5D701C5C06BC002FC58A /* Drivable.swift */; };
+		682A5D761C5C06BC002FC58A /* Drivable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682A5D701C5C06BC002FC58A /* Drivable.swift */; };
+		682A5D771C5C06BC002FC58A /* Drivable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682A5D701C5C06BC002FC58A /* Drivable.swift */; };
+		682A5D781C5C06BC002FC58A /* Drivable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682A5D701C5C06BC002FC58A /* Drivable.swift */; };
 		79E9DE891C3417FD009970AF /* DispatchQueueSchedulerQOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E9DE881C3417FD009970AF /* DispatchQueueSchedulerQOS.swift */; };
 		79E9DE8A1C3417FD009970AF /* DispatchQueueSchedulerQOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E9DE881C3417FD009970AF /* DispatchQueueSchedulerQOS.swift */; };
 		79E9DE8B1C3417FD009970AF /* DispatchQueueSchedulerQOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E9DE881C3417FD009970AF /* DispatchQueueSchedulerQOS.swift */; };
@@ -1305,6 +1309,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		682A5D701C5C06BC002FC58A /* Drivable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Drivable.swift; path = Driver/Drivable.swift; sourceTree = "<group>"; };
 		79E9DE881C3417FD009970AF /* DispatchQueueSchedulerQOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueueSchedulerQOS.swift; sourceTree = "<group>"; };
 		842A5A281C357F7D003568D5 /* NSTextStorage+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTextStorage+Rx.swift"; sourceTree = "<group>"; };
 		8476A01F1C3D5D580040BA22 /* UIImagePickerController+RxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+RxTests.swift"; sourceTree = "<group>"; };
@@ -2110,6 +2115,7 @@
 			isa = PBXGroup;
 			children = (
 				C80DDE8C1BCE69BA006A1832 /* Driver */,
+				682A5D701C5C06BC002FC58A /* Drivable.swift */,
 				C80D33931B922FB00014629D /* ControlEvent.swift */,
 				C80D33941B922FB00014629D /* ControlProperty.swift */,
 			);
@@ -3197,6 +3203,7 @@
 				C882542F1B8A752B00B02D69 /* UIScrollView+Rx.swift in Sources */,
 				C80DDE9B1BCE69BA006A1832 /* Driver+Operators.swift in Sources */,
 				C8093EE31B8A732E0088E94D /* DelegateProxyType.swift in Sources */,
+				682A5D751C5C06BC002FC58A /* Drivable.swift in Sources */,
 				C8093EFD1B8A732E0088E94D /* RxTarget.swift in Sources */,
 				8479BC461C3ACDF100FB8B54 /* RxImagePickerDelegateProxy.swift in Sources */,
 				C88254361B8A752B00B02D69 /* UITextView+Rx.swift in Sources */,
@@ -3271,6 +3278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				682A5D761C5C06BC002FC58A /* Drivable.swift in Sources */,
 				C80DDEA41BCE69BA006A1832 /* Driver.swift in Sources */,
 				C8093F4A1B8A732E0088E94D /* NSImageView+Rx.swift in Sources */,
 				C8DB96891BF756F40084BD53 /* KVORepresentable+CoreGraphics.swift in Sources */,
@@ -4083,6 +4091,7 @@
 				C8F0C0081BBBFBB9001B112F /* UIScrollView+Rx.swift in Sources */,
 				C80DDE9E1BCE69BA006A1832 /* Driver+Operators.swift in Sources */,
 				C8F0C0091BBBFBB9001B112F /* DelegateProxyType.swift in Sources */,
+				682A5D781C5C06BC002FC58A /* Drivable.swift in Sources */,
 				C8F0C00A1BBBFBB9001B112F /* RxTarget.swift in Sources */,
 				8479BC491C3ACDFD00FB8B54 /* RxImagePickerDelegateProxy.swift in Sources */,
 				C8F0C00B1BBBFBB9001B112F /* UITextView+Rx.swift in Sources */,
@@ -4173,6 +4182,7 @@
 				C80DDE9D1BCE69BA006A1832 /* Driver+Operators.swift in Sources */,
 				D2138C8C1BB9BECA00339B5C /* ControlEvent.swift in Sources */,
 				D2138C981BB9BEEE00339B5C /* RxCocoa.swift in Sources */,
+				682A5D771C5C06BC002FC58A /* Drivable.swift in Sources */,
 				D2138C991BB9BEEE00339B5C /* RxTarget.swift in Sources */,
 				8479BC481C3ACDF700FB8B54 /* RxImagePickerDelegateProxy.swift in Sources */,
 				D203C5081BB9C53E00D02D00 /* UIGestureRecognizer+Rx.swift in Sources */,

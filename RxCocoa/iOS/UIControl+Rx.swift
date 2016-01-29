@@ -19,19 +19,9 @@ extension UIControl {
     /**
     Bindable sink for `enabled` property.
     */
-    public var rx_enabled: AnyObserver<Bool> {
-        return AnyObserver { [weak self] event in
-            MainScheduler.ensureExecutingOnScheduler()
-            
-            switch event {
-            case .Next(let value):
-                self?.enabled = value
-            case .Error(let error):
-                bindingErrorToInterface(error)
-                break
-            case .Completed:
-                break
-            }
+    public var rx_enabled: Drivable<Bool> {
+        return Drivable { [weak self] value in
+            self?.enabled = value
         }
     }
 
@@ -82,18 +72,8 @@ extension UIControl {
             .distinctUntilChanged()
             .takeUntil(rx_deallocated)
         
-        return ControlProperty<T>(values: source, valueSink: AnyObserver { event in
-            MainScheduler.ensureExecutingOnScheduler()
-
-            switch event {
-            case .Next(let value):
-                setter(value)
-            case .Error(let error):
-                bindingErrorToInterface(error)
-                break
-            case .Completed:
-                break
-            }
+        return ControlProperty<T>(values: source, valueSink: Drivable { value in
+            setter(value)
         })
     }
 
